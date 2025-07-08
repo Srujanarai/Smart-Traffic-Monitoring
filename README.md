@@ -3,20 +3,24 @@ The system identifies multiple types of vehicles—such as cars, trucks, buses, 
 
 Smart Traffic Monitoring is developed using Python, incorporating the YOLOv8 deep learning model for object detection and the OpenCV library for video processing and visualization. The system is designed to detect, classify, andcount various vehicle types such as  cars,motorcycles, buses, and trucks from a video feed or live camera stream. The methodology includes structured modules for loading the model, processing video input, performing detection, and rendering the results.
 1. Model and Data Initialization
+
 YOLOv8 Model Loading:
 The Ultralytics YOLOv8 small model (yolov8s.pt), pre-trained on the COCO dataset, is loaded at the beginning. This model supports 80 classes, including multiple vehicle types. It is accessed using the ultralytics Python package.
 Vehicle Class Mapping:
 A dictionary is defined to map specific class IDs (2: car, 3: motorcycle, 5: bus, 7: truck) to their corresponding labels.
+
 Data Structures:
  A set vehicle_ids is used to ensure unique vehicle counting.
  A dictionary vehicle_types is initialized to keep count of each vehicle type.
  An integer vehicle_count tracks the total number of vehicles detected.
-2. Video Frame Processing
+
+3. Video Frame Processing
 Video Input:
 The program uses OpenCV’s cv2.VideoCapture() to load the video file (or webcam stream). Frames are read one at a time using a loop, and detection is performed on each frame.
 Counting Line Definition:
 A fixed horizontal line (at line_y = 300) is drawn across the frame. Vehicles are counted only when their center crosses this line within a margin range (±20 pixels).
-3. Detection and Classification Logic
+
+5. Detection and Classification Logic
 Object Detection:
 Each frame is passed to the YOLOv8 model using the .predict() method. Detected bounding boxes are returned along with class IDs and confidence scores.
 Class Filtering:
