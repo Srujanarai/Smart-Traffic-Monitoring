@@ -13,20 +13,14 @@ Data Structures:
  An integer vehicle_count tracks the total number of vehicles detected.
 2. Video Frame Processing
 Video Input:
-The program uses OpenCV’s cv2.VideoCapture() to load the video file (or
-webcam stream). Frames are read one at a time using a loop, and detection is
-performed on each frame.
+The program uses OpenCV’s cv2.VideoCapture() to load the video file (or webcam stream). Frames are read one at a time using a loop, and detection is performed on each frame.
 Counting Line Definition:
-A fixed horizontal line (at line_y = 300) is drawn across the frame. Vehicles are
-counted only when their center crosses this line within a margin range (±20
-pixels).
+A fixed horizontal line (at line_y = 300) is drawn across the frame. Vehicles are counted only when their center crosses this line within a margin range (±20 pixels).
 3. Detection and Classification Logic
 Object Detection:
-Each frame is passed to the YOLOv8 model using the .predict() method. Detected
-bounding boxes are returned along with class IDs and confidence scores.
+Each frame is passed to the YOLOv8 model using the .predict() method. Detected bounding boxes are returned along with class IDs and confidence scores.
 Class Filtering:
-Only detections with class IDs that match predefined vehicle types are processed
-further.
+Only detections with class IDs that match predefined vehicle types are processed further.
 
 Bounding Box Handling:
  Bounding box coordinates (x1, y1, x2, y2) are used to calculate the center point of the vehicle.
@@ -41,22 +35,17 @@ Count Incrementation:
  A blue rectangle is drawn around each detected vehicle.
  Labels show vehicle type and confidence score (e.g., "Car
 (0.87)"). Drawing Counting Line:
- A green line is overlaid across the video frame at the counting
-level. Overlay Display:
- A semi-transparent black rectangle is drawn at the top of the frame to
-display real-time statistics.
+ A green line is overlaid across the video frame at the counting level. Overlay Display:
+ A semi-transparent black rectangle is drawn at the top of the frame to display real-time statistics.
 Text Display:
  cv2.putText() is used to render total vehicle count and individual counts
 for each type.
-6. Real-time Interaction and Exit
-Live Display:
+6. Real-time Interaction and Exit Live Display:
  Each processed frame is shown in a window titled “Vehicle Detection & Counting”.
  Exit Option:
  The program allows the user to press 'q' to stop the video and exit the loop gracefully.
-7. Validation and Constraints
-Confidence Threshold:
- A confidence threshold of 0.3 is set to filter out low-confidence
-detections, improving result reliability.
+7. Validation and Constraints Confidence Threshold:
+ A confidence threshold of 0.3 is set to filter out low-confidence detections, improving result reliability.
 Class Validation:
  Only COCO vehicle classes (car, truck, motorcycle, bus) are processed. Line Margin:
  A margin range (±20 pixels) is applied around the counting line to account for minor shifts in vehicle center positions.
