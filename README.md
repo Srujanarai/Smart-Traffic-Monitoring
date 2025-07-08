@@ -28,24 +28,16 @@ Class Filtering:
 Only detections with class IDs that match predefined vehicle types are processed
 further.
 
-8
-
 Bounding Box Handling:
- Bounding box coordinates (x1, y1, x2, y2) are used to calculate the center
-point of the vehicle.
- This center point is checked against the virtual line to determine if the
-vehicle should be counted.
+ Bounding box coordinates (x1, y1, x2, y2) are used to calculate the center point of the vehicle.
+ This center point is checked against the virtual line to determine if the vehicle should be counted.
 4. Vehicle Counting Algorithm
 Unique Counting Strategy:
- To avoid multiple counts of the same vehicle, a tuple (center_x,
-vehicle_type) is stored in the vehicle_ids set.
- A vehicle is counted only once when its center crosses the counting line
-for the first time.
+ To avoid multiple counts of the same vehicle, a tuple (center_x,vehicle_type) is stored in the vehicle_ids set.
+ A vehicle is counted only once when its center crosses the counting line for the first time.
 Count Incrementation:
- On valid crossing, both vehicle_count and the specific vehicle type
-count in vehicle_types are incremented.
-5. Visual Output and Interface
-Drawing Bounding Boxes:
+ On valid crossing, both vehicle_count and the specific vehicle type count in vehicle_types are incremented.
+5. Visual Output and Interface Drawing Bounding Boxes:
  A blue rectangle is drawn around each detected vehicle.
  Labels show vehicle type and confidence score (e.g., "Car
 (0.87)"). Drawing Counting Line:
@@ -58,30 +50,22 @@ Text Display:
 for each type.
 6. Real-time Interaction and Exit
 Live Display:
- Each processed frame is shown in a window titled “Vehicle
-Detection & Counting”.
+ Each processed frame is shown in a window titled “Vehicle Detection & Counting”.
  Exit Option:
- The program allows the user to press 'q' to stop the video and exit the
-loop gracefully.
-
-9
+ The program allows the user to press 'q' to stop the video and exit the loop gracefully.
 7. Validation and Constraints
 Confidence Threshold:
  A confidence threshold of 0.3 is set to filter out low-confidence
 detections, improving result reliability.
 Class Validation:
- Only COCO vehicle classes (car, truck, motorcycle, bus) are
-processed. Line Margin:
- A margin range (±20 pixels) is applied around the counting line to
-account for minor shifts in vehicle center positions.
+ Only COCO vehicle classes (car, truck, motorcycle, bus) are processed. Line Margin:
+ A margin range (±20 pixels) is applied around the counting line to account for minor shifts in vehicle center positions.
 Frame Read Errors:
  If a frame cannot be read, the system exits gracefully and prints a message.
 8. Error Handling and Debugging
 Debug Statements:
- Print statements are included to log detected vehicles, class names, and
-their confidence levels.
- Trucks and specific detections can be logged with additional messages
-for deeper debugging.
+ Print statements are included to log detected vehicles, class names, and their confidence levels.
+ Trucks and specific detections can be logged with additional messages for deeper debugging.
 Final Summary:
  At the end of the video, a complete summary is printed to the console,listing the total number of vehicles and the count for each type.
 
