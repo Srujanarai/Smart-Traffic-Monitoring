@@ -1,5 +1,5 @@
 # Smart-Traffic-Monitoring
-The system identifies multiple types of vehicles—such as cars, trucks, buses, and motorcycles—and counts them as they cross a predefined virtual line in the video frame
+The system identifies multiple types of vehicles—such as cars, trucks, buses, and motorcycles—and counts them as they cross a predefined virtual line in the video frame.
 
 Smart Traffic Monitoring is developed using Python, incorporating the YOLOv8 deep learning model for object detection and the OpenCV library for video processing and visualization. The system is designed to detect, classify, andcount various vehicle types such as  cars,motorcycles, buses, and trucks from a video feed or live camera stream. The methodology includes structured modules for loading the model, processing video input, performing detection, and rendering the results.
 1. Model and Data Initialization
